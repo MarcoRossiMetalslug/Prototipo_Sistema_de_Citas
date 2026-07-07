@@ -1,0 +1,530 @@
+:root {
+  --paper: #eef2ec;
+  --card: #fbfaf5;
+  --ink: #16232a;
+  --ink-soft: #52646b;
+  --teal: #1b4b4a;
+  --teal-deep: #0f3332;
+  --teal-pale: #d7e6e1;
+  --coral: #de5a3c;
+  --coral-soft: #f3d9d0;
+  --line: #ccd6cd;
+  --amber: #b8791f;
+  --amber-soft: #f6e3c2;
+  --blue: #3a6ea8;
+  --blue-soft: #d9e6f4;
+  --green: #2f7a52;
+  --green-soft: #d9ecdf;
+  --red: #b23a2f;
+  --red-soft: #f4d9d5;
+  --radius: 6px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+body {
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 28px 28px;
+  background-position: -1px -1px;
+  background-attachment: fixed;
+}
+
+.app {
+  font-family: 'Inter', system-ui, sans-serif;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 28px 28px 60px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+code {
+  font-family: 'IBM Plex Mono', monospace;
+  background: var(--coral-soft);
+  color: var(--teal-deep);
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-size: 0.88em;
+}
+
+h1, h2, h3 {
+  font-family: 'Fraunces', serif;
+  color: var(--teal-deep);
+  margin: 0 0 6px;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--coral);
+  margin-bottom: 10px;
+}
+.eyebrow--claro { color: var(--amber-soft); }
+
+.texto-suave { color: var(--ink-soft); line-height: 1.55; }
+.texto-suave--claro { color: var(--teal-pale); }
+
+.enlace {
+  background: none;
+  border: none;
+  color: var(--teal);
+  text-decoration: underline;
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+}
+
+/* ---------- Navbar ---------- */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 3px solid var(--ink);
+  padding-bottom: 20px;
+  margin-bottom: 28px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.navbar__marca {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.navbar__cruz {
+  font-size: 26px;
+  color: var(--coral);
+}
+.navbar__marca strong {
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  display: block;
+}
+.navbar__sub {
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.navbar__sesion {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.navbar__usuario {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+}
+.navbar__rol {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--teal);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 10px 18px;
+  border-radius: var(--radius);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.05s ease, opacity 0.15s ease;
+}
+.btn:active { transform: translateY(1px); }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.btn--principal {
+  background: var(--teal);
+  color: #fdfdf8;
+}
+.btn--principal:hover:not(:disabled) { background: var(--teal-deep); }
+
+.btn--fantasma {
+  background: transparent;
+  border-color: var(--ink);
+  color: var(--ink);
+}
+.btn--fantasma:hover:not(:disabled) { background: var(--ink); color: var(--card); }
+
+.btn--peligro {
+  background: transparent;
+  border-color: var(--red);
+  color: var(--red);
+}
+.btn--peligro:hover:not(:disabled) { background: var(--red); color: #fff; }
+
+.btn--pequeno { padding: 6px 12px; font-size: 12.5px; }
+
+/* ---------- Login / Registro ---------- */
+.pantalla-centrada {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.tarjeta-login {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  max-width: 880px;
+  width: 100%;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 18px 40px -24px rgba(15, 51, 50, 0.4);
+}
+.tarjeta-login__lado { padding: 40px; }
+.tarjeta-login__demo {
+  background: var(--teal-deep);
+  color: var(--teal-pale);
+  padding: 40px 32px;
+}
+
+.demo-lista { display: flex; flex-direction: column; gap: 10px; margin-top: 18px; }
+.demo-cuenta {
+  text-align: left;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: var(--radius);
+  color: #fdfdf8;
+  padding: 10px 14px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.demo-cuenta:hover { background: rgba(255,255,255,0.14); }
+.demo-cuenta span { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--amber-soft); }
+
+.tarjeta-registro {
+  max-width: 680px;
+  width: 100%;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 40px;
+  box-shadow: 0 18px 40px -24px rgba(15, 51, 50, 0.4);
+}
+
+/* ---------- Forms ---------- */
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 20px;
+}
+.formulario--grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 18px;
+}
+.formulario label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.formulario .span-2 { grid-column: span 2; }
+
+.formulario input,
+.formulario select,
+.formulario textarea {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  border: 1.5px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  font-weight: 400;
+}
+.formulario input:focus,
+.formulario select:focus,
+.formulario textarea:focus {
+  outline: none;
+  border-color: var(--teal);
+}
+
+.formulario__acciones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.mensaje-error {
+  background: var(--red-soft);
+  color: var(--red);
+  border: 1px solid var(--red);
+  border-radius: var(--radius);
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.mensaje-ok {
+  background: var(--green-soft);
+  color: var(--green);
+  border: 1px solid var(--green);
+  border-radius: var(--radius);
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ---------- Panel / tabs ---------- */
+.app__main { flex: 1; }
+
+.panel__tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--line);
+}
+.panel__tabs button {
+  background: none;
+  border: none;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  padding: 10px 16px;
+  cursor: pointer;
+  color: var(--ink-soft);
+  border-bottom: 3px solid transparent;
+  transform: translateY(2px);
+}
+.panel__tabs button.is-active {
+  color: var(--teal-deep);
+  border-bottom-color: var(--coral);
+  font-weight: 700;
+}
+
+.tarjeta {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 28px;
+  margin-bottom: 20px;
+}
+
+.vacio {
+  color: var(--ink-soft);
+  font-style: italic;
+  padding: 14px 0;
+}
+
+/* ---------- Citas ---------- */
+.lista-citas { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
+.fila-cita {
+  display: grid;
+  grid-template-columns: 90px 1fr auto auto;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+}
+.fila-cita__fecha { display: flex; flex-direction: column; font-size: 13px; }
+.fila-cita__info { display: flex; flex-direction: column; font-size: 13.5px; }
+.fila-cita__info span { color: var(--ink-soft); font-size: 12.5px; }
+
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 16px 0 8px;
+}
+.filtros input, .filtros select {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  padding: 8px 10px;
+  border-radius: var(--radius);
+  border: 1.5px solid var(--line);
+  background: #fff;
+}
+
+.tabla-citas { display: flex; flex-direction: column; gap: 8px; margin-top: 14px; }
+.tabla-citas__fila {
+  display: grid;
+  grid-template-columns: 100px 1.2fr 1.2fr auto auto;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+  font-size: 13.5px;
+}
+.tabla-citas__fila--pacientes { grid-template-columns: 1fr 1fr 1fr 1.4fr; }
+.tabla-citas__acciones { display: flex; gap: 6px; }
+
+/* ---------- Badges de estado ---------- */
+.badge {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 4px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+  justify-self: start;
+}
+.badge--PENDIENTE { background: var(--amber-soft); color: var(--amber); }
+.badge--CONFIRMADA { background: var(--teal-pale); color: var(--teal-deep); }
+.badge--REPROGRAMADA { background: var(--blue-soft); color: var(--blue); }
+.badge--ATENDIDA { background: var(--green-soft); color: var(--green); }
+.badge--CANCELADA { background: var(--red-soft); color: var(--red); }
+
+/* ---------- Historial clínico ---------- */
+.lista-atenciones { display: flex; flex-direction: column; gap: 14px; margin-top: 16px; }
+.atencion-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  background: #fff;
+}
+.atencion-card header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin-bottom: 10px;
+  border-bottom: 1px dashed var(--line);
+  padding-bottom: 8px;
+}
+.atencion-card dl { display: grid; grid-template-columns: 140px 1fr; gap: 6px 12px; margin: 0; }
+.atencion-card dt { font-weight: 700; font-size: 12.5px; color: var(--teal); }
+.atencion-card dd { margin: 0; font-size: 13.5px; }
+
+.receta-box {
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: var(--amber-soft);
+  border-radius: var(--radius);
+  font-size: 13px;
+}
+.receta-box ul { margin: 6px 0 0; padding-left: 18px; }
+
+/* ---------- Modal ---------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 35, 34, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 50;
+}
+.modal {
+  background: var(--card);
+  border-radius: var(--radius);
+  max-width: 480px;
+  width: 100%;
+  max-height: 88vh;
+  overflow-y: auto;
+  box-shadow: 0 24px 60px -20px rgba(0,0,0,0.5);
+}
+.modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 22px;
+  border-bottom: 1px solid var(--line);
+}
+.modal__header h3 { margin: 0; font-size: 18px; }
+.modal__cerrar {
+  background: none;
+  border: none;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--ink-soft);
+}
+.modal__cuerpo { padding: 20px 22px 24px; }
+
+.medicamentos { display: flex; flex-direction: column; gap: 8px; }
+.medicamentos__fila {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr 0.9fr 0.8fr auto;
+  gap: 8px;
+}
+.medicamentos__fila input {
+  font-size: 13px;
+  padding: 8px 10px;
+  border-radius: var(--radius);
+  border: 1.5px solid var(--line);
+}
+.btn-quitar {
+  background: none;
+  border: 1.5px solid var(--red);
+  color: var(--red);
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* ---------- Bitácora / consola ---------- */
+.consola {
+  background: var(--teal-deep);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-top: 16px;
+  max-height: 420px;
+  overflow-y: auto;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12.5px;
+}
+.consola__linea {
+  display: grid;
+  grid-template-columns: 70px 150px 110px 1fr;
+  gap: 10px;
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  color: #dff2e8;
+}
+.consola__hora { color: #7fb79f; }
+.consola__rol { color: var(--amber-soft); }
+.consola__actor { color: #fdfdf8; font-weight: 600; }
+
+/* ---------- Footer ---------- */
+.pie {
+  margin-top: 40px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 780px) {
+  .tarjeta-login { grid-template-columns: 1fr; }
+  .formulario--grid { grid-template-columns: 1fr; }
+  .formulario .span-2 { grid-column: span 1; }
+  .fila-cita, .tabla-citas__fila { grid-template-columns: 1fr; }
+  .medicamentos__fila { grid-template-columns: 1fr 1fr; }
+  .consola__linea { grid-template-columns: 1fr; }
+}
