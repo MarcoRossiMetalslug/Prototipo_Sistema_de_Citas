@@ -33,8 +33,7 @@ export default function App() {
           <Contenido />
         </main>
         <footer className="pie">
-          Clínica Santa Rita · Prototipo del "Sistema de Gestión de Citas y Atención de
-          Pacientes" — datos de demostración guardados solo en este navegador.
+          Prototipo Sistema de Gestion de Citas - Clinica Santa Rita.
         </footer>
       </div>
     </ClinicaProvider>
