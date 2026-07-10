@@ -33,7 +33,7 @@ export default function App() {
           <Contenido />
         </main>
         <footer className="pie">
-          Prototipo Sistema de Gestion de Citas - Clinica Santa Rita.
+          Prototipo Sistema de Gestion de Citas - Clinica Santa Rita
         </footer>
       </div>
     </ClinicaProvider>
