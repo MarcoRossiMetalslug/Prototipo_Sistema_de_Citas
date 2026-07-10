@@ -71,6 +71,10 @@ export default function LoginPage({ onIrARegistro }) {
               <strong>Médico · Pediatría</strong>
               <span>dra.flores / medico123</span>
             </button>
+            <button className="demo-cuenta" onClick={() => usarDemo('dr.rios', 'medico123')}>
+              <strong>Medicina General</strong>
+              <span>dr.rios / medico123</span>
+            </button>
             <button className="demo-cuenta" onClick={() => usarDemo('admin.recepcion', 'admin123')}>
               <strong>Personal administrativo</strong>
               <span>admin.recepcion / admin123</span>
